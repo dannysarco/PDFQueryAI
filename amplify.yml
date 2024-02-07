@@ -22,3 +22,30 @@ applications:
         paths:
           - .venv/**
           - .pipenv/**
+  frontend:
+      phases:
+        preBuild:
+          commands:
+            - npm install
+        build:
+          commands:
+            - npm run build
+      artifacts:
+        baseDirectory: /path/to/build/output
+        files:
+          - '**/*'
+      cache:
+        paths:
+          - node_modules/**/*
+    env:
+      variables:
+        SECRET_KEY: "123"
+        SQLALCHEMY_DATABASE_URI: "sqlite:///sqlite.db"
+        UPLOAD_URL: "https://prod-upload-langchain.fly.dev"
+        OPENAI_API_KEY: "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"
+        REDIS_URI: "redis://default:VdCO6EiUT0Uwq7ulDMw98BB9Dr2Lteon@redis-11974.c322.us-east-1-2.ec2.cloud.redislabs.com:11974"
+        PINECONE_API_KEY: "08c3f68a-0cb4-49ba-8c47-34a189769d29"
+        PINECONE_ENV_NAME: "gcp-starter"
+        PINECONE_INDEX_NAME: "docs"
+        LANGFUSE_PUBLIC_KEY: "pk-lf-b05920c6-1d05-48d2-8e17-12b49a122b21"
+        LANGFUSE_SECRET_KEY: "sk-lf-d7f806c5-ce8e-4416-8c6e-191ddd41708c"
