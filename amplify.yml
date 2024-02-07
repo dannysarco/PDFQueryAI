@@ -4,25 +4,20 @@ applications:
       phases:
         preBuild:
           commands:
-            # Install Pipenv and dependencies
             - pip install pipenv
             - pipenv install
         build:
           commands:
-            # Initialize the database
             - pipenv run flask --app app.web init-db
-            # Additional commands to run the server and worker can be customized as per requirement
-            # Note: AWS Amplify does not support running Redis directly. Consider using Amazon ElastiCache or similar for production
       artifacts:
-        # Specify the artifacts directory if any
         baseDirectory: /
         files:
-          - '**/*'
+          - "**/*"
       cache:
         paths:
           - .venv/**
           - .pipenv/**
-  frontend:
+    frontend:
       phases:
         preBuild:
           commands:
@@ -33,7 +28,7 @@ applications:
       artifacts:
         baseDirectory: /path/to/build/output
         files:
-          - '**/*'
+          - "**/*"
       cache:
         paths:
           - node_modules/**/*
