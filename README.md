@@ -1,5 +1,45 @@
 # First Time Setup
 
+## Project Setup Instructions
+
+To properly configure the environment for this project, you will need to create a `.env` file in the root directory. This file should contain the necessary API keys and configuration details for various services. Below is a template for the `.env` file with placeholders for the values you need to provide:
+
+```
+# Application Secret
+SECRET_KEY=your_secret_key
+
+# Database Configuration
+SQLALCHEMY_DATABASE_URI=sqlite:///path_to_your_sqlite.db
+
+# File Upload Service
+UPLOAD_URL=https://prod-upload-langchain.fly.dev
+
+# OpenAI API Configuration
+OPENAI_API_KEY=your_openai_api_key
+
+# Redis Configuration
+REDIS_URI=redis://your_redis_host:your_redis_port
+
+# Pinecone Configuration
+PINECONE_API_KEY=your_pinecone_api_key
+PINECONE_ENV_NAME=your_pinecone_environment_name
+PINECONE_INDEX_NAME=your_pinecone_index_name
+
+# LangFuse Configuration
+LANGFUSE_PUBLIC_KEY=your_langfuse_public_key
+LANGFUSE_SECRET_KEY=your_langfuse_secret_key
+```
+
+Please follow these steps to configure your project environment:
+
+1. **Create Accounts & Obtain API Keys:** You will need to create accounts on the respective platforms (OpenAI, Pinecone, LangFuse) and generate API keys for each service.
+
+2. **Configure the `.env` File:** Fill in the placeholders in the `.env` template with your actual API keys and configuration details.
+
+3. **Place the `.env` File:** Ensure the `.env` file is located in the root directory of the project for the application to access these configurations during runtime.
+
+By setting up the `.env` file as described, you will provide your project with the necessary credentials and configurations to interact with external services and databases. This setup is crucial for the full functionality of the application.
+
 ## Using Pipenv [Recommended]
 
 ```
